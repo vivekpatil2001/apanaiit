@@ -1,12 +1,12 @@
 import { Schema, model } from "mongoose";
 import bcrypt from "bcryptjs"
-import  Jwt  from "jsonwebtoken";
+import  jwt  from "jsonwebtoken";
 
 const userSchema = new Schema(
   {
     fullName: {
       type: String,
-      required: [true, "Name is required"],
+  
       minLength: [5, "Name must be at least 5 charecters"],
       maxLength: [50, "Name should be less than 50 characters"],
       lowercase: true,
@@ -69,4 +69,5 @@ userSchema.method = {
    },
 }
 const User = model("User", userSchema);
+
 export default User;
