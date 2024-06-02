@@ -6,17 +6,16 @@ import morgan from "morgan";
 import userRoutes from "./routes/user.routes.js";
 import errorMiddleware from "./middlewares/error.middleware.js";
 
-dotenv.config();
+dotenv.config({
+  path: "./.env",
+});
 
 const app = express();
 
 // app.use(express.json)
 
 app.use(
-  cors({
-    origin: [process.env.FRONTEND_URL],
-    credentials: true,
-  })
+  cors()
 );
 
 app.use(cookieParser());
